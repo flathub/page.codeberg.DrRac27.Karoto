@@ -1,9 +1,9 @@
 app-id: page.codeberg.DrRac27.Karoto
 runtime: org.kde.Platform
-runtime-version: "6.4"
+runtime-version: "6.5"
 sdk: org.kde.Sdk
 base: com.riverbankcomputing.PyQt.BaseApp
-base-version: "6.4"
+base-version: "6.5"
 command: karoto
 finish-args:
   - "--share=ipc"
