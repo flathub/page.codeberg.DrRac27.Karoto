@@ -26,20 +26,16 @@ modules:
   - name: karoto
     buildsystem: simple
     build-commands:
-      - pip3 install --no-deps --prefix=${FLATPAK_DEST} karoto-0.1-py3-none-any.whl
+      - pip3 install --no-deps --prefix=${FLATPAK_DEST} karoto-0.2-py3-none-any.whl
       - install -Dm644 packaging/karoto.svg ${FLATPAK_DEST}/share/icons/hicolor/scalable/apps/${FLATPAK_ID}.svg
       - install -Dm644 packaging/karoto.desktop ${FLATPAK_DEST}/share/applications/karoto.desktop
       - desktop-file-edit --set-icon=${FLATPAK_ID} ${FLATPAK_DEST}/share/applications/karoto.desktop
-      - install -Dm644 org.codeberg.DrRac27.Karoto.metainfo.xml ${FLATPAK_DEST}/share/metainfo/${FLATPAK_ID}.metainfo.xml
-      - sed -i 's/org.codeberg/page.codeberg/g' ${FLATPAK_DEST}/share/metainfo/${FLATPAK_ID}.metainfo.xml
+      - install -Dm644 packaging/page.codeberg.DrRac27.Karoto.metainfo.xml ${FLATPAK_DEST}/share/metainfo/${FLATPAK_ID}.metainfo.xml
     sources:
       - type: file
-        url: https://codeberg.org/DrRac27/karoto/raw/commit/9fc57e919eff7f2656903f888c150483b7cdefa6/packaging/org.codeberg.DrRac27.Karoto.metainfo.xml
-        sha256: 5a7ad280f12ad55bc75d1b976597b010e13a8e7e8a47f2d8a646f100187d425d # TODO: Remove in v0.2
-      - type: file
-        url: https://files.pythonhosted.org/packages/59/17/6ad132d97f545b73ea703292171d2606411faaf8e3f9d316ef19cbb74fd9/karoto-0.1-py3-none-any.whl
-        sha256: e743f3682b80e42e11244cb56e5c46c930505eeada2c6ec6f54d7f2018199156
+        url: https://files.pythonhosted.org/packages/03/2d/8b8f81ed623fc136218da2944e58318cb397af36090d35d0be4d24e6ec6b/karoto-0.2-py3-none-any.whl
+        sha256: 27da2127a55e0750d0a6ee02842d03a8fd7e6868216104906567af0e52b63531
       - type: git
         url: https://codeberg.org/DrRac27/karoto.git
-        tag: "0.1"
-        commit: dee4b967580ad6319fa359e109d478af4eb54d6c
+        tag: "0.2"
+        commit: 19417c116fef4a6bb91ef7ed465781a5811cff07
