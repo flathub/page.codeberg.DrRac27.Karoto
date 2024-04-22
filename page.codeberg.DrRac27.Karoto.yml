@@ -1,9 +1,9 @@
 app-id: page.codeberg.DrRac27.Karoto
 runtime: org.kde.Platform
-runtime-version: "6.5"
+runtime-version: "6.6"
 sdk: org.kde.Sdk
 base: com.riverbankcomputing.PyQt.BaseApp
-base-version: "6.5"
+base-version: "6.6"
 command: karoto
 finish-args:
   - "--share=ipc"
@@ -37,5 +37,4 @@ modules:
         sha256: 27da2127a55e0750d0a6ee02842d03a8fd7e6868216104906567af0e52b63531
       - type: git
         url: https://codeberg.org/DrRac27/karoto.git
-        tag: "0.2"
-        commit: 19417c116fef4a6bb91ef7ed465781a5811cff07
+        commit: 58e96e8865706c941fed74e46457e589d0a0f5d8
