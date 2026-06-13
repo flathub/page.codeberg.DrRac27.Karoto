@@ -1,36 +1,30 @@
 app-id: page.codeberg.DrRac27.Karoto
 runtime: org.kde.Platform
-runtime-version: "6.8"
+runtime-version: "6.10"
 sdk: org.kde.Sdk
 base: com.riverbankcomputing.PyQt.BaseApp
-base-version: "6.8"
+base-version: "6.10"
 command: karoto
+rename-icon: karoto
+rename-desktop-file: karoto.desktop
 finish-args:
-  - "--share=ipc"
-  - "--socket=wayland"
-  - "--socket=fallback-x11"
-  - "--device=dri"
-
-cleanup:
-  - /include
-  - /lib/pkgconfig
-  - '*.la'
-  - '*.a'
+  - --share=ipc
+  - --socket=wayland
+  - --socket=fallback-x11
+  - --device=dri
 cleanup-commands:
   - /app/cleanup-BaseApp.sh
 build-options:
   env:
     - BASEAPP_REMOVE_WEBENGINE=1
-rename-desktop-file: karoto.desktop
 modules:
   - name: karoto
     buildsystem: simple
     build-commands:
-      - pip3 install --no-deps --prefix=${FLATPAK_DEST} karoto-0.2-py3-none-any.whl
-      - install -Dm644 packaging/karoto.svg ${FLATPAK_DEST}/share/icons/hicolor/scalable/apps/${FLATPAK_ID}.svg
-      - install -Dm644 packaging/karoto.desktop ${FLATPAK_DEST}/share/applications/karoto.desktop
-      - desktop-file-edit --set-icon=${FLATPAK_ID} ${FLATPAK_DEST}/share/applications/karoto.desktop
-      - install -Dm644 packaging/page.codeberg.DrRac27.Karoto.metainfo.xml ${FLATPAK_DEST}/share/metainfo/${FLATPAK_ID}.metainfo.xml
+      - pip3 install --no-deps --prefix=${FLATPAK_DEST} karoto-*.whl
+      - install -Dm644 packaging/karoto.svg -t ${FLATPAK_DEST}/share/icons/hicolor/scalable/apps/
+      - install -Dm644 packaging/karoto.desktop -t ${FLATPAK_DEST}/share/applications/
+      - install -Dm644 packaging/${FLATPAK_ID}.metainfo.xml -t ${FLATPAK_DEST}/share/metainfo/
     sources:
       - type: file
         url: https://files.pythonhosted.org/packages/03/2d/8b8f81ed623fc136218da2944e58318cb397af36090d35d0be4d24e6ec6b/karoto-0.2-py3-none-any.whl
